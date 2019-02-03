@@ -1,5 +1,8 @@
-const tf = require('@tensorflow/tfjs');
-//const mnist = require("mnist")
+import UMAP from './src/umap';
 
-console.log(tf.tensor([1, 2, 3]).data());
-//console.log(mnist);
+const X = mnist.get(100);
+
+const umap = new UMAP();
+umap.fitTransform(X).then((embedding) => {
+    console.log(embedding);
+});
